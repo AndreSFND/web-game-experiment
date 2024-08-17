@@ -1,20 +1,19 @@
+import Color from "./model/Color.js"
+
 class GameManager {
-    constructor(canvas, context) {
-        this.canvas = canvas;
-        this.context = context;
-        this.xPosition = 0;
-        this.yPosition = 0;
+    constructor(canvasAdapter) {
+        this.canvasAdapter = canvasAdapter
+        this.xPosition = 0
+        this.yPosition = 0
     }
 
     run() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.canvasAdapter.clearScreen()
+        this.canvasAdapter.drawSquare(this.xPosition, this.yPosition, 50, Color.GREEN)
 
-        this.context.fillStyle = "darkgreen"
-        this.context.fillRect(this.xPosition, this.yPosition, 50, 50)
-
-        this.xPosition += 1;
-        this.yPosition += 1;
+        this.xPosition += 1
+        this.yPosition += 1
     }
 }
 
-export default GameManager;
+export default GameManager
