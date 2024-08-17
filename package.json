@@ -1,0 +1,10 @@
+{
+  "name": "web-game-experiment",
+  "version": "1.0.0",
+  "description": "A web game experiment, as the title implies",
+  "scripts": {
+    "test": "live-server ./public --mount=/src:./src"
+  },
+  "author": "AndreSFND",
+  "license": "ISC"
+}
