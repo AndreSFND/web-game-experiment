@@ -1,3 +1,6 @@
+import Input from "../model/Input.js";
+import Vector2 from "../model/Vector2.js"
+
 class EntityMovementListener {
     constructor(entity) {
         this.entity = entity
@@ -9,21 +12,17 @@ class EntityMovementListener {
 
     handleKey(keyCode) {
         switch (keyCode) {
-            case 'KeyW':
-            case 'ArrowUp':
-                this.entity.moveUp()
+            case Input.UP:
+                this.entity.setForce(new Vector2(0, +15))
                 break;
-            case 'KeyA':
-            case 'ArrowLeft':
-                this.entity.moveLeft()
+            case Input.DOWN:
+                this.entity.setForce(new Vector2(0, -15))
                 break;
-            case 'KeyS':
-            case 'ArrowDown':
-                this.entity.moveDown()
+            case Input.LEFT:
+                this.entity.setForce(new Vector2(-15, 0))
                 break;
-            case 'KeyD':
-            case 'ArrowRight':
-                this.entity.moveRight()
+            case Input.RIGHT:
+                this.entity.setForce(new Vector2(+15, 0))
                 break;
         }
     }

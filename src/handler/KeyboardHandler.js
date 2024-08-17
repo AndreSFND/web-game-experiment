@@ -1,4 +1,13 @@
+import Input from "../model/Input.js"
+
 class KeyboardHandler {
+    static KEYBOARD_MAP = new Map([
+        ["KeyW", Input.UP],
+        ["KeyA", Input.LEFT],
+        ["KeyS", Input.DOWN],
+        ["KeyD", Input.RIGHT],
+    ])
+
     constructor(inputFacade) {
         this.inputFacade = inputFacade
     }
@@ -8,11 +17,19 @@ class KeyboardHandler {
     }
 
     handleKeyDown(event) {
-        this.inputFacade.addActiveInput(event.code)
+        if (!KeyboardHandler.KEYBOARD_MAP.has(event.code)) {
+            return
+        }
+
+        this.inputFacade.addActiveInput(KeyboardHandler.KEYBOARD_MAP.get(event.code))
     }
 
     handleKeyUp(event) {
-        this.inputFacade.removeActiveInput(event.code)
+        if (!KeyboardHandler.KEYBOARD_MAP.has(event.code)) {
+            return
+        }
+
+        this.inputFacade.removeActiveInput(KeyboardHandler.KEYBOARD_MAP.get(event.code))
     }
 }
 

@@ -1,8 +1,8 @@
-class Input {
-    static get UP() { return "up" }
-    static get DOWN() { return "down" }
-    static get LEFT() { return "left" }
-    static get RIGHT() { return "right" }
-}
+const Input = Object.freeze({
+    UP:     Symbol("UP"),
+    DOWN:   Symbol("DOWN"),
+    LEFT:   Symbol("LEFT"),
+    RIGHT:  Symbol("RIGHT")
+});
 
 export default Input
