@@ -1,11 +1,7 @@
 class Color {
-    static #_RED = "red";
-    static #_GREEN = "green";
-    static #_BLUE = "blue";
-
-    static get RED() { return this.#_RED; }
-    static get GREEN() { return this.#_GREEN; }
-    static get BLUE() { return this.#_BLUE; }
+    static get RED() { return "red" }
+    static get GREEN() { return "green" }
+    static get BLUE() { return "blue" }
 }
 
 export default Color

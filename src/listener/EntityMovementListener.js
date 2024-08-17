@@ -1,4 +1,4 @@
-class MovementListener {
+class EntityMovementListener {
     constructor(entity) {
         this.entity = entity
     }
@@ -29,4 +29,4 @@ class MovementListener {
     }
 }
 
-export default MovementListener
+export default EntityMovementListener
