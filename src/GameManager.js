@@ -1,18 +1,22 @@
-import Color from "./model/Color.js"
+import Player from "./entities/Player.js"
+import MovementListener from "./listener/MovementListener.js"
 
 class GameManager {
-    constructor(canvasAdapter) {
+    constructor(canvasAdapter, keyboardHandler) {
         this.canvasAdapter = canvasAdapter
-        this.xPosition = 0
-        this.yPosition = 0
+        this.keyboardHandler = keyboardHandler
+
+        const player = new Player(this.canvasAdapter)
+
+        this.entities = []
+        this.entities.push(player)
+
+        this.keyboardHandler.addSubscriber(new MovementListener(player))
     }
 
     run() {
         this.canvasAdapter.clearScreen()
-        this.canvasAdapter.drawSquare(this.xPosition, this.yPosition, 50, Color.GREEN)
-
-        this.xPosition += 1
-        this.yPosition += 1
+        this.entities.forEach(entity => entity.draw())
     }
 }
 
